@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dashboards_dashboard_name": {
+            "value": null
+        },
+        "components_Rsliinfra_externalid": {
+            "value": null
+        },
+        "workspaces_rsliinfra_loganalyticsworkspace_externalid": {
+            "value": null
+        }
+    }
+}
