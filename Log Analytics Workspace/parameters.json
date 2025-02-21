@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "southindia"
+    },
+    "workspaceName": {
+      "value": "RsliinfraWorspaceUsingARM"
+    },
+    "dceName": {
+      "value": "RsliDCE_usingARM"
+    },
+    "dcrSyslogName": {
+      "value": "myDataCollectionRule"
+    },
+    "dcrCustomLogName": {
+      "value": "myCustomLogDCR"
+    },
+    "logFilePath": {
+      "value": "/var/log/carrental/*.log"
+    }
+  }
+}
