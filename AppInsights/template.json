@@ -6,9 +6,9 @@
             "type": "String",
             "defaultValue": "Rsliinfra"
         },
-        "workspaces_DefaultWorkspace_72f8027a_150a_4542_97d9_891a1e2b650f_southind_externalid": {
+        "workspaces_name": {
             "type": "String",
-            "defaultValue": "/subscriptions/<subscription_id>/resourceGroups/DefaultResourceGroup-southindia/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-72f8027a-150a-4542-97d9-891a1e2b650f-southind"
+            "defaultValue": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-72f8027a-150a-4542-97d9-891a1e2b650f-southind"
         },
         "location": {
             "type": "String",
@@ -69,7 +69,7 @@
                 "Flow_Type": "Redfield",
                 "Request_Source": "IbizaAIExtension",
                 "RetentionInDays": 90,
-                "WorkspaceResourceId": "[parameters('workspaces_DefaultWorkspace_72f8027a_150a_4542_97d9_891a1e2b650f_southind_externalid')]",
+                "WorkspaceResourceId": "[parameters('workspaces_name')]",
                 "IngestionMode": "LogAnalytics",
                 "publicNetworkAccessForIngestion": "Enabled",
                 "publicNetworkAccessForQuery": "Enabled"
