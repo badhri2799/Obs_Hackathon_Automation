@@ -6,16 +6,16 @@
       "value": "southindia"
     },
     "workspaceName": {
-      "value": "RsliinfraWorspaceUsingARM"
+      "value": "RSLIinfraWorkspaceUsingARM"
     },
     "dceName": {
-      "value": "RsliDCE_usingARM"
+      "value": "RSLIDCEusingARM"
     },
     "dcrSyslogName": {
-      "value": "myDataCollectionRule"
+      "value": "RSLISyslogDCRARM"
     },
     "dcrCustomLogName": {
-      "value": "myCustomLogDCR"
+      "value": "RSLICustomLogDCRARM"
     },
     "logFilePath": {
       "value": "/var/log/carrental/*.log"
