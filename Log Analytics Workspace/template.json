@@ -67,82 +67,98 @@
           "publicNetworkAccess": "Enabled"
         }
       }
-    },
-    {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "apiVersion": "2022-01-01-preview",
-      "location": "[parameters('location')]",
-      "name": "[parameters('dcrSyslogName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
-        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]"
-      ],
-      "properties": {
-        "dataSources": {
-          "syslog": {
-            "syslogConfigurations": [
-              {
-                "syslogFacility": "auth",
-                "syslogSeverity": "info",
-                "syslogSource": "Ubuntu"
-              },
-              {
-                "syslogFacility": "daemon",
-                "syslogSeverity": "info",
-                "syslogSource": "Ubuntu"
-              }
-            ]
-          }
-        },
-        "destinations": {
-          "logAnalytics": [
-            {
-              "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
-            }
-          ]
-        },
-        "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]"
-      }
-    },
-    {
-      "type": "Microsoft.Insights/dataCollectionRules",
-      "apiVersion": "2022-01-01-preview",
-      "location": "[parameters('location')]",
-      "name": "[parameters('dcrCustomLogName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
-        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]"
-      ],
-      "properties": {
-        "dataSources": {
-          "extensions": [
-            {
-              "extensionName": "CustomLog",
-              "streams": [
-                "Microsoft-Logs-Custom"
-              ],
-              "extensionSettings": {
-                "logFiles": [
-                  {
-                    "filePatterns": [
-                      "[parameters('logFilePath')]"
-                    ],
-                    "format": "json"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "destinations": {
-          "logAnalytics": [
-            {
-              "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
-            }
-          ]
-        },
-        "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]"
-      }
     }
+//	{
+//      "type": "Microsoft.Insights/dataCollectionRules",
+//      "apiVersion": "2022-06-01",
+//      "location": "[parameters('location')]",
+//      "name": "[parameters('dcrSyslogName')]",
+//      "dependsOn": [
+//        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
+//        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]"
+//      ],
+//      "properties": {
+//        "dataSources": {
+//          "syslog": {
+//            "syslogConfigurations": [
+//              {
+//                "syslogFacility": "auth",
+//                "syslogSeverity": "info",
+//                "syslogSource": "Ubuntu"
+//              },
+//              {
+//                "syslogFacility": "daemon",
+//                "syslogSeverity": "info",
+//                "syslogSource": "Ubuntu"
+//              }
+//            ]
+//          }
+//        },
+//        "destinations": {
+//          "logAnalytics": [
+//            {
+//              "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
+//			  "name": "[parameters('workspaceName')]"
+//            }
+//          ]
+//        },
+//        "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]",
+//		"dataFlows": [
+//		  {
+//			"streams": [
+//			  "Syslog"
+//			],
+//			"destinations": [
+//			  {
+//				"logAnalytics": {
+//				  "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]"
+//				}
+//			  }
+//			]
+//		  }
+//		]		
+//      }
+//    },
+//    {
+//      "type": "Microsoft.Insights/dataCollectionRules",
+//      "apiVersion": "2022-06-01",
+//      "location": "[parameters('location')]",
+//      "name": "[parameters('dcrCustomLogName')]",
+//      "dependsOn": [
+//        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
+//        "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]"
+//      ],
+//      "properties": {
+//        "dataSources": {
+//          "extensions": [
+//            {
+//              "name": "CustomLogRSL",
+//              "streams": [
+//                "Microsoft-Logs-Custom"
+//              ],
+//              "extensionSettings": {
+//                "logFiles": [
+//                  {
+//                    "filePatterns": [
+//                      "[parameters('logFilePath')]"
+//                    ],
+//                    "format": "json"
+//                  }
+//                ]
+//              }
+//            }
+//          ]
+//        },
+//        "destinations": {
+//          "logAnalytics": [
+//            {
+//              "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
+//			  "name": "[parameters('workspaceName')]"
+//            }
+//          ]
+//        },
+//        "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dceName'))]"
+//      }
+//    }
   ]
 }
