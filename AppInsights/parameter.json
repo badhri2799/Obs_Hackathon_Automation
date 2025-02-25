@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "components_Rsliinfra_name": {
-            "value": "Rsliinfra"
+            "value": "RsliinfrausingARM"
         },
-        "workspaces_DefaultWorkspace_72f8027a_150a_4542_97d9_891a1e2b650f_southind_externalid": {
-            "value": "/subscriptions/<subscription_id>/resourceGroups/DefaultResourceGroup-southindia/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-72f8027a-150a-4542-97d9-891a1e2b650f-southind"
+        "workspaces_name": {
+            "value": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.OperationalInsights/workspaces/RSL-Workspace-usingARM"
         },
         "location": {
             "value": "southindia"
