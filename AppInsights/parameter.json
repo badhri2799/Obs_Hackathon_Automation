@@ -3,47 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "components_Rsliinfra_name": {
-            "value": "RsliinfrausingARM"
+            "value": "RsliinfraAppInsightsusingARM"
         },
         "workspaces_name": {
-            "value": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.OperationalInsights/workspaces/RSL-Workspace-usingARM"
+            "value": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.OperationalInsights/workspaces/Rsliinfra-LogAnalyticsWorkspace"
         },
         "location": {
             "value": "southindia"
-        },
-        "emailNotificationEnabled": {
-            "value": true
-        },
-        "emailSubscriptionOwner": {
-            "value": true
-        },
-        "customEmails": {
-            "value": []
-        },
-        "rules": {
-            "value": [
-                {
-                    "Name": "degradationindependencyduration",
-                    "DisplayName": "Degradation in dependency duration",
-                    "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                    "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                    "Enabled": true
-                },
-                {
-                    "Name": "degradationinserverresponsetime",
-                    "DisplayName": "Degradation in server response time",
-                    "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                    "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                    "Enabled": true
-                },
-                {
-                    "Name": "digestMailConfiguration",
-                    "DisplayName": "Digest Mail Configuration",
-                    "Description": "This rule describes the digest mail preferences",
-                    "HelpUrl": "www.homail.com",
-                    "Enabled": true
-                }
-            ]
         }
     }
 }
