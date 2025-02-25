@@ -7,11 +7,11 @@
             "type": "String"
         },
         "dataCollectionEndpoints_Rsliinfra_DCE_externalid": {
-            "defaultValue": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.Insights/dataCollectionEndpoints/Rsliinfra-DCE",
+            "defaultValue": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/Microsoft.Insights/dataCollectionEndpoints/Rsliinfra-DCE",
             "type": "String"
         },
         "workspaces_Rsliinfra_LogAnalyticsWorkspace_externalid": {
-            "defaultValue": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.OperationalInsights/workspaces/Rsliinfra-LogAnalyticsWorkspace",
+            "defaultValue": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.OperationalInsights/workspaces/Rsliinfra-LogAnalyticsWorkspace",
             "type": "String"
         }
     },
