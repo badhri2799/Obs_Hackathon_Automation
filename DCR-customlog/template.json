@@ -1,0 +1,92 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataCollectionRules_Rsliinfra_customlog_DCR_name": {
+            "defaultValue": "Rsliinfra-customlog-DCR",
+            "type": "String"
+        },
+        "dataCollectionEndpoints_Rsliinfra_DCE_externalid": {
+            "defaultValue": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.Insights/dataCollectionEndpoints/Rsliinfra-DCE",
+            "type": "String"
+        },
+        "workspaces_Rsliinfra_LogAnalyticsWorkspace_externalid": {
+            "defaultValue": "/subscriptions/72f8027a-150a-4542-97d9-891a1e2b650f/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/Microsoft.OperationalInsights/workspaces/Rsliinfra-LogAnalyticsWorkspace",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Insights/dataCollectionRules",
+            "apiVersion": "2023-03-11",
+            "name": "[parameters('dataCollectionRules_Rsliinfra_customlog_DCR_name')]",
+            "location": "southindia",
+            "kind": "Linux",
+            "properties": {
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpoints_Rsliinfra_DCE_externalid')]",
+                "streamDeclarations": {
+                    "Custom-Text-car_service_log_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "RawData",
+                                "type": "string"
+                            },
+                            {
+                                "name": "FilePath",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Computer",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                "dataSources": {
+                    "logFiles": [
+                        {
+                            "streams": [
+                                "Custom-Text-car_service_log_CL"
+                            ],
+                            "filePatterns": [
+                                "/home/Rsliinfraadmin/logs/*.log"
+                            ],
+                            "format": "text",
+                            "settings": {
+                                "text": {
+                                    "recordStartTimestampFormat": "YYYY-MM-DD HH:MM:SS"
+                                }
+                            },
+                            "name": "Custom-Text-car_service_log_CL"
+                        }
+                    ]
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[parameters('workspaces_Rsliinfra_LogAnalyticsWorkspace_externalid')]",
+                            "name": "la--1899879911"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-Text-car_service_log_CL"
+                        ],
+                        "destinations": [
+                            "la--1899879911"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "Custom-car_service_log_CL"
+                    }
+                ]
+            }
+        }
+    ]
+}
