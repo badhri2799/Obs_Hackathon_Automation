@@ -7,11 +7,11 @@
             "type": "String"
         },
         "components_Rsliinfra_externalid": {
-            "defaultValue": "/subscriptions/<subscription_id>/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/microsoft.insights/components/Rsliinfra",
+            "defaultValue": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/microsoft.insights/components/Rsliinfra",
             "type": "String"
         },
         "workspaces_rsliinfra_loganalyticsworkspace_externalid": {
-            "defaultValue": "/subscriptions/<subscription_id>/resourceGroups/nspoke-rg-managedservicesl-southindia/providers/microsoft.operationalinsights/workspaces/rsliinfra-loganalyticsworkspace",
+            "defaultValue": "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/microsoft.operationalinsights/workspaces/rsliinfra-loganalyticsworkspace",
             "type": "String"
         }
     },
