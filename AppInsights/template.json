@@ -13,44 +13,6 @@
         "location": {
             "type": "String",
             "defaultValue": "southindia"
-        },
-        "emailNotificationEnabled": {
-            "type": "Boolean",
-            "defaultValue": true
-        },
-        "emailSubscriptionOwner": {
-            "type": "Boolean",
-            "defaultValue": true
-        },
-        "customEmails": {
-            "type": "Array",
-            "defaultValue": []
-        },
-        "rules": {
-            "type": "Array",
-            "defaultValue": [
-                {
-                    "Name": "degradationindependencyduration",
-                    "DisplayName": "Degradation in dependency duration",
-                    "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                    "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                    "Enabled": true
-                },
-                {
-                    "Name": "degradationinserverresponsetime",
-                    "DisplayName": "Degradation in server response time",
-                    "Description": "Smart Detection rules notify you of performance anomaly issues.",
-                    "HelpUrl": "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
-                    "Enabled": true
-                },
-                {
-                    "Name": "digestMailConfiguration",
-                    "DisplayName": "Digest Mail Configuration",
-                    "Description": "This rule describes the digest mail preferences",
-                    "HelpUrl": "www.homail.com",
-                    "Enabled": true
-                }
-            ]
         }
     },
     "variables": {},
@@ -74,51 +36,7 @@
                 "publicNetworkAccessForIngestion": "Enabled",
                 "publicNetworkAccessForQuery": "Enabled"
             }
-        },
-        {
-            "type": "microsoft.insights/components/ProactiveDetectionConfigs",
-            "apiVersion": "2018-05-01-preview",
-            "name": "[concat(parameters('components_Rsliinfra_name'), '/degradationindependencyduration')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('microsoft.insights/components', parameters('components_Rsliinfra_name'))]"
-            ],
-            "properties": {
-                "ruleDefinitions": "[first(where(parameters('rules'), item().Name == 'degradationindependencyduration'))]",
-                "enabled": "[parameters('emailNotificationEnabled')]",
-                "sendEmailsToSubscriptionOwners": "[parameters('emailSubscriptionOwner')]",
-                "customEmails": "[parameters('customEmails')]"
-            }
-        },
-        {
-            "type": "microsoft.insights/components/ProactiveDetectionConfigs",
-            "apiVersion": "2018-05-01-preview",
-            "name": "[concat(parameters('components_Rsliinfra_name'), '/degradationinserverresponsetime')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('microsoft.insights/components', parameters('components_Rsliinfra_name'))]"
-            ],
-            "properties": {
-                "ruleDefinitions": "[first(where(parameters('rules'), item().Name == 'degradationinserverresponsetime'))]",
-                "enabled": "[parameters('emailNotificationEnabled')]",
-                "sendEmailsToSubscriptionOwners": "[parameters('emailSubscriptionOwner')]",
-                "customEmails": "[parameters('customEmails')]"
-            }
-        },
-        {
-            "type": "microsoft.insights/components/ProactiveDetectionConfigs",
-            "apiVersion": "2018-05-01-preview",
-            "name": "[concat(parameters('components_Rsliinfra_name'), '/digestMailConfiguration')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('microsoft.insights/components', parameters('components_Rsliinfra_name'))]"
-            ],
-            "properties": {
-                "ruleDefinitions": "[first(where(parameters('rules'), item().Name == 'digestMailConfiguration'))]",
-                "enabled": "[parameters('emailNotificationEnabled')]",
-                "sendEmailsToSubscriptionOwners": "[parameters('emailSubscriptionOwner')]",
-                "customEmails": "[parameters('customEmails')]"
-            }
         }
+
     ]
 }
